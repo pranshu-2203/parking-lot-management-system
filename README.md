@@ -62,19 +62,48 @@ parking-lot-management-system/
 ```
 ---
 
+```md
+## 🗄️ Database Schema (Overview)
+
+The system uses a relational database to persist parking data.
+
+**Core Tables:**
+
+- **parking_lot**
+  - id
+  - total_slots
+  - available_slots
+
+- **parking_entry**
+  - entry_id
+  - vehicle_number
+  - vehicle_type
+  - slot_number
+  - entry_time
+  - exit_time
+  - total_fee
+
+**Relationships:**
+- One parking lot → multiple parking entries
+- Each parking entry is associated with a single slot
+
+The schema is defined in:
+`src/main/resources/Schema.sql`
+```
+---
 🧱 Prerequisites
 
-Before running the application, ensure you have:
+Make sure you have the following installed:
 
 Java 17 or higher
 
 Maven
 
 MySQL (or any JDBC-compatible database)
-
+---
 📦 Database Setup
 
-Create a database (e.g. parking_lot_db) in MySQL.
+Create a database (example: parking_lot_db) in MySQL.
 
 Import the schema:
 
@@ -88,80 +117,109 @@ private static final String USER = "your_username";
 private static final String PASS = "your_password";
 
 
-⚠️ Note: These are placeholders. Never commit real credentials.
-
+⚠️ Important:
+These are placeholders. Never commit real credentials to GitHub.
+---
 ▶️ How to Run
 
-Build the project (from project root):
+From the project root directory:
 
-    mvn clean compile
+Build the project
+mvn clean compile
 
+Run the application
+mvn exec:java -Dexec.mainClass="park.Main"
 
-Run the application:
+Follow the console prompts to:
 
-    mvn exec:java -Dexec.mainClass="park.Main"
-
-
-Follow console prompts to:
-
-*Register vehicle entry
+Register vehicle entry
 
 Allocate parking slots
 
 Calculate parking fees
 
 Exit vehicles and free slots
-*
+---
+## 🖥️ Sample Console Output
+
+```text
+====== Parking Lot Management System ======
+
+1. Park Vehicle
+2. Exit Vehicle
+3. View Parking Status
+4. Exit Application
+
+Enter your choice: 1
+
+Enter Vehicle Number: DL01AB1234
+Enter Vehicle Type (CAR/BIKE): CAR
+
+Slot allocated successfully.
+Assigned Slot Number: 3
+Entry Time: 2026-02-04 18:32:10
+Enter your choice: 2
+
+Enter Vehicle Number: DL01AB1234
+
+Vehicle exited successfully.
+Parking Duration: 2 hours
+Total Fee: ₹100
+Slot freed successfully.
+```
+
+---
+
 🧪 Running Tests
 
-Execute all unit tests:
+Run all unit tests using:
 
-    *mvn test*
+mvn test
 
 
 JUnit tests validate:
 
-1.Slot allocation logic
+Slot allocation logic
 
-2.Billing calculation
+Billing calculations
 
-3.Entry/exit workflows
+Vehicle entry and exit workflows
 
 📝 Features
-*
+
 Vehicle entry and exit handling
 
-Parking slot allocation
+Parking slot allocation logic
 
-Billing logic based on usage
+Billing based on parking usage
 
 Modular and readable architecture
 
-JDBC-based persistence
+JDBC-based database persistence
 
 Unit testing with JUnit
-*
+
 ⚠️ Limitations
 
-Console-based (no UI)
+Console-based (no graphical UI)
 
 Basic error handling
 
 Single-user execution
 
-Designed for learning purposes
+Designed for learning and demonstration purposes
 
 📚 Learning Outcomes
 
-Java OOP design
+Java OOP and modular design
 
 JDBC database connectivity
 
-Maven project management
+Maven project structure and lifecycle
 
-Unit testing with JUnit
+Writing and running unit tests
 
-GitHub repository structuring
+Maintaining a clean GitHub repository
 
 📄 License
 
