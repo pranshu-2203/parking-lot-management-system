@@ -90,56 +90,62 @@ The system uses a relational database to persist parking data.
 The schema is defined in:
 `src/main/resources/Schema.sql`
 ```
----
-🧱 Prerequisites
 
+🧱 Prerequisites
+---
 Make sure you have the following installed:
 
-Java 17 or higher
+1.Java 17 or higher
 
-Maven
+2.Maven
 
-MySQL (or any JDBC-compatible database)
----
+3.MySQL (or any JDBC-compatible database)
+
 📦 Database Setup
+---
+1.Create a database (example: parking_lot_db) in MySQL.
 
-Create a database (example: parking_lot_db) in MySQL.
+2.Import the schema:
 
-Import the schema:
+  ```
+  mysql -u <username> -p < src/main/resources/Schema.sql
+  ```
 
-mysql -u <username> -p < src/main/resources/Schema.sql
+3.Update database credentials in DB_Connection.java:
 
-
-Update database credentials in DB_Connection.java:
-
-private static final String URL = "jdbc:mysql://localhost:3306/your_db_name";
-private static final String USER = "your_username";
-private static final String PASS = "your_password";
+  ```
+  private static final String URL = "jdbc:mysql://localhost:3306/your_db_name";
+  private static final String USER = "your_username";
+  private static final String PASS = "your_password";
+  ```
 
 
 ⚠️ Important:
 These are placeholders. Never commit real credentials to GitHub.
----
+
 ▶️ How to Run
-
-From the project root directory:
-
-Build the project
-mvn clean compile
-
-Run the application
-mvn exec:java -Dexec.mainClass="park.Main"
-
-Follow the console prompts to:
-
-Register vehicle entry
-
-Allocate parking slots
-
-Calculate parking fees
-
-Exit vehicles and free slots
 ---
+
+1. From the project root directory
+   ```
+   mvn clean compile
+   ```
+
+2.Run the application
+  ```
+  mvn exec:java -Dexec.mainClass="park.Main"
+```
+
+3.Follow the console prompts to:
+
+-Register vehicle entry
+
+-Allocate parking slots
+
+-Calculate parking fees
+
+-Exit vehicles and free slots
+
 ## 🖥️ Sample Console Output
 
 ```text
@@ -168,59 +174,60 @@ Total Fee: ₹100
 Slot freed successfully.
 ```
 
----
+
 
 🧪 Running Tests
-
+---
 Run all unit tests using:
 
+  ```
 mvn test
-
+```
 
 JUnit tests validate:
 
-Slot allocation logic
+1.Slot allocation logic
 
-Billing calculations
+2.Billing calculations
 
-Vehicle entry and exit workflows
+3.Vehicle entry and exit workflows
 
 📝 Features
+---
+1.Vehicle entry and exit handling
 
-Vehicle entry and exit handling
+2.Parking slot allocation logic
 
-Parking slot allocation logic
+3.Billing based on parking usage
 
-Billing based on parking usage
+4.Modular and readable architecture
 
-Modular and readable architecture
+5.JDBC-based database persistence
 
-JDBC-based database persistence
-
-Unit testing with JUnit
+6.Unit testing with JUnit
 
 ⚠️ Limitations
+---
+1.Console-based (no graphical UI)
 
-Console-based (no graphical UI)
+2.Basic error handling
 
-Basic error handling
+3.Single-user execution
 
-Single-user execution
-
-Designed for learning and demonstration purposes
+4.Designed for learning and demonstration purposes
 
 📚 Learning Outcomes
+---
+1.Java OOP and modular design
 
-Java OOP and modular design
+2.JDBC database connectivity
 
-JDBC database connectivity
+3.Maven project structure and lifecycle
 
-Maven project structure and lifecycle
+4.Writing and running unit tests
 
-Writing and running unit tests
-
-Maintaining a clean GitHub repository
+5.Maintaining a clean GitHub repository
 
 📄 License
-
+---
 This project is licensed under the MIT License.
