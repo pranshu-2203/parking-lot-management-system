@@ -1,0 +1,47 @@
+# =========================
+# Maven / Java build files
+# =========================
+target/
+*.class
+*.log
+
+# =========================
+# IDE / Editor files
+# =========================
+.vscode/
+.idea/
+*.iml
+*.ipr
+*.iws
+
+# =========================
+# OS-specific files
+# =========================
+.DS_Store
+Thumbs.db
+
+# =========================
+# Environment / secrets
+# =========================
+.env
+*.properties
+*.local
+
+# =========================
+# Database / local SQL sessions
+# =========================
+*.session.sql
+*.db
+*.sqlite
+
+# =========================
+# Temporary / backup files
+# =========================
+*.tmp
+*.bak
+*.swp
+
+# =========================
+# Logs
+# =========================
+logs/
